@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Huoneet</title>
+    </head>
+    <body>
+        <h1>Huone</h1>
+
+        <h2>Lisää huone</h2>
+		<form method="POST" action="lisaa_huone">
+			{% csrf_token %}
+			{{ lisattava_huone.as_p }}
+            <input type="submit" value="Lisää">            
+        </form>
+
+        <h2>Lisää henkilö</h2>
+		<form method="POST" action="lisaa_henkilo">
+			{% csrf_token %}
+			{{ lisattava_henkilo.as_p }}
+            <input type="submit" value="Lisää">            
+        </form>
+        <h2>Huoneet</h2>
+        <ul>
+			{% for huone in huoneet %}
+				<li>{{ huone }} <a href="poista_huone/{{ huone.id }}">poista</a>
+					<ul>
+						{% for henkilo in huone.henkilot.all %}
+						<li>{{ henkilo }} <a href="poista_henkilo/{{ henkilo.id }}">poista</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+        </ul>
+	</body>
+</html>
+
