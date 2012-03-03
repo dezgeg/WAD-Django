@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Elokuvat ja Genret</title>
+    </head>
+    <body>
+        <h1>Elokuva</h1>
+
+        <h2>Lisää elokuva</h2>
+		<form method="POST" action="lisaa_elokuva">
+			{% csrf_token %}
+			{{ elokuva_form.as_p }}
+			<input type="submit" value="Lisää"/>
+		</form>
+
+        <h2>Lisää genre</h2>
+		<form method="POST" action="lisaa_genre">
+			{% csrf_token %}
+			{{ genre_form.as_p }}
+			<input type="submit" value="Lisää"/>
+		</form>
+
+        <h2>Elokuvaet</h2>
+        <ul>
+			{% for elokuva in elokuvat %}
+				<li><a href="genret_elokuvaan/{{ elokuva.id }}">{{ elokuva }}</a>
+					<ul>
+						{% for genre in elokuva.genret.all %}
+							<li>{{ genre }}</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+        </ul>
+
+        <h2>Genret</h2>
+        <ul>
+			{% for genre in genret %}
+                <li><a href="genre/{{ genre.id }}">{{ genre }}</a></li>
+			{% endfor %}
+		</ul>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Genret elokuvaan</title>
+    </head>
+    <body>
+		<h1>Genret elokuvaan {{ elokuva.nimi }}</h1>
+
+		<form method="POST" action="{{ elokuva.id }}">
+			{% csrf_token %}
+			{{ elokuva.as_p }}
+            <input type="submit" value="Päivitä" />
+        </form>
+    </body>
+</html>

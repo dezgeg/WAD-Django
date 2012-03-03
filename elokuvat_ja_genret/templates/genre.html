@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Elokuvat ja Genret</title>
+    </head>
+    <body>
+		<h2>Elokuvaet genren {{ genre.nimi }} mukaan</h2>
+        <ul>
+			{% for elokuva in genre.elokuvat.all %}
+				<li>{{ elokuva }}</li>
+			{% endfor %}
+        </ul>
+    </body>
+</html>
+

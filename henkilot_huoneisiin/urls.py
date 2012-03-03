@@ -6,7 +6,4 @@ urlpatterns = patterns('wad_django.henkilot_huoneisiin.views',
 	url(r'lisaa_henkilo', 'lisaa_henkilo'),
 	url(r'poista_huone/(\d+)/$', 'poista_huone'),
 	url(r'poista_henkilo/(\d+)/$', 'poista_henkilo'),
-    # Examples:
-    # url(r'^$', 'wad_django.views.home', name='home'),
-    # url(r'^wad_django/', include('wad_django.foo.urls')),
 )

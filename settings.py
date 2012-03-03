@@ -106,10 +106,12 @@ ROOT_URLCONF = 'wad_django.urls'
 
 TEMPLATE_DIRS = (
 	os.path.join(PROJECT_PATH, 'henkilot_huoneisiin', 'templates'),
+	os.path.join(PROJECT_PATH, 'elokuvat_ja_genret', 'templates'),
 )
 
 INSTALLED_APPS = (
 	'wad_django.henkilot_huoneisiin',
+	'wad_django.elokuvat_ja_genret',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
